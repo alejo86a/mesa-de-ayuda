@@ -1,4 +1,4 @@
-<?php
+  <?php
 /**
  * User: Arif Uddin
  * Date: 4/6/12
@@ -13,10 +13,10 @@ class DatabaseConnection {
     private $dbHost;
 
     public function DatabaseConnection() {
-        $this->dbUser = 'root';
-        $this->dbPassword = '';
-        $this->dbName = 'stdinfo';
-        $this->dbHost = 'localhost';
+        $this->dbUser = 'bde207ba7043d6';
+        $this->dbPassword = 'ac8054e1';
+        $this->dbName = 'heroku_7df0d6bf5653554';
+        $this->dbHost = 'us-cdbr-east-03.cleardb.com';
     }
 
     public function GetDB() {
