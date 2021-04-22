@@ -13,43 +13,32 @@
                 IDCARGO
               </th>
               <th>
-                NOMBRE
+                Nombre
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                10
-              </td>
-              <td>
-                INFORMÁTICA
-              </td>
-            </tr>
-            <tr>
-              <td>
-                20
-              </td>
-              <td>
-                GESTIÓN HUMANA
-              </td>
-            </tr>
-            <tr>
-              <td>
-                30
-              </td>
-              <td>
-                MANTENIMIENTO
-              </td>
-            </tr>
-            <tr>
-              <td>
-                40
-              </td>
-              <td>
-                CONTABILIDAD
-              </td>
-            </tr>
+            <?php
+              $cargoDao = new CargoDao();
+
+              $all_cargos = $cargoDao->GetAllCargos();
+              if ($all_cargos->num_rows > 0) {
+                while($row = $all_cargos->fetch_assoc()) {
+                  echo "<tr>";
+                  echo "<td>".$row["IDCARGO"]."</td>";
+                  echo "<td>".$row["NOMBRE"]."</td>";
+                  
+                  echo "</tr>";
+                }
+             }else{
+                echo "<tr>";
+                echo "<td></td>";
+                echo "<td></td>";
+
+                echo "</tr>";
+              }
+
+            ?>
           </tbody>
         </table>
       </div>

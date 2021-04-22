@@ -19,8 +19,6 @@
           </thead>
           <tbody>
             <?php
-              $errorMessage;
-
               $areaDao = new AreaDao();
 
               $all_areas = $areaDao->GetAllAreas();
@@ -31,7 +29,12 @@
                   
                   echo "</tr>";
                 }
-            }
+              }else{
+                  echo "<tr>";
+                  echo "<td></td>";
+
+                  echo "</tr>";
+                }
 
             ?>
           </tbody>

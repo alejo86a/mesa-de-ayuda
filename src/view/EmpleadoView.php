@@ -10,6 +10,9 @@
           <thead class=" text-primary">
             <tr>
               <th>
+                IDEMPLEADO
+              </th>
+              <th>
                 NOMBRE
               </th>
               <th>
@@ -39,104 +42,41 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                Dakota Rice
-              </td>
-              <td>
-                Niger
-              </td>
-              <td>
-                Oud-Turnhout
-              </td>
-              <td class="text-center">
-                $36,738
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Minerva Hooper
-              </td>
-              <td>
-                Curaçao
-              </td>
-              <td>
-                Sinaai-Waas
-              </td>
-              <td class="text-center">
-                $23,789
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Sage Rodriguez
-              </td>
-              <td>
-                Netherlands
-              </td>
-              <td>
-                Baileux
-              </td>
-              <td class="text-center">
-                $56,142
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Philip Chaney
-              </td>
-              <td>
-                Korea, South
-              </td>
-              <td>
-                Overland Park
-              </td>
-              <td class="text-center">
-                $38,735
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Doris Greene
-              </td>
-              <td>
-                Malawi
-              </td>
-              <td>
-                Feldkirchen in Kärnten
-              </td>
-              <td class="text-center">
-                $63,542
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Mason Porter
-              </td>
-              <td>
-                Chile
-              </td>
-              <td>
-                Gloucester
-              </td>
-              <td class="text-center">
-                $78,615
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Jon Porter
-              </td>
-              <td>
-                Portugal
-              </td>
-              <td>
-                Gloucester
-              </td>
-              <td class="text-center">
-                $98,615
-              </td>
-            </tr>
+            <?php
+              $empleadoDao = new EmpleadoDao();
+
+              $all_empleados = $empleadoDao->GetAllEmpleados();
+              if ($all_empleados->num_rows > 0) {
+                while($row = $all_empleados->fetch_assoc()) {
+                  echo "<tr>";
+                  echo "<td>".$row["IDEMPLEADO"]."</td>";
+                  echo "<td>".$row["NOMBRE"]."</td>";
+                  echo "<td>".$row["FOTO"]."</td>";
+                  echo "<td>".$row["HOJAVIDA"]."</td>";
+                  echo "<td>".$row["TELEFONO"]."</td>";
+                  echo "<td>".$row["EMAIL"]."</td>";
+                  echo "<td>".$row["DIRECCION"]."</td>";
+                  echo "<td>".$row["X"]."</td>";
+                  echo "<td>".$row["Y"]."</td>";
+                  echo "<td>".$row["CARGO"]."</td>";
+                  
+                  echo "</tr>";
+                }
+               }else{
+                  echo "<tr>";
+                  echo "<td></td>";
+                  echo "<td></td>";
+                  echo "<td></td>";
+                  echo "<td></td>";
+                  echo "<td></td>";
+                  echo "<td></td>";
+                  echo "<td></td>";
+                  echo "<td></td>";
+                  echo "<td></td>";
+                  echo "</tr>";
+                }
+
+              ?>
           </tbody>
         </table>
       </div>

@@ -1,10 +1,10 @@
 <?php
 
-class AreaDao {
+class EmpleadoDao {
 	
 	private $conexionDB;
 	
-	public function AreaDao() {
+	public function EmpleadoDao() {
 		$this -> conexionDB= new Conectar();
 	}
 	
@@ -13,16 +13,17 @@ class AreaDao {
 	}
 	
 	/**
-	 * Get All Areas
+	 * Get All Empleados
 	 *
 	 * @return array
 	 */
-	public function GetAllAreas() {
+	public function GetAllEmpleados() {
 		try {
-			$sql = "SELECT * FROM area";
+			$sql = "SELECT empleado.*, cargo.NOMBRE as CARGO
+				FROM empleado
+				INNER JOIN cargo ON empleado.IDEMPLEADO=cargo.IDCARGO;";
 			$result = $this->conexionDB->connect()->query($sql);
-			
-			$this->conexionDB->connect()->close();
+
 			return $result;
 		} catch (PDOException $e) {
 			die("Se produjo un error ".$e);

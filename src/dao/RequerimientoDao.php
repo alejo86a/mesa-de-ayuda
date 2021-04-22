@@ -1,10 +1,10 @@
 <?php
 
-class AreaDao {
+class RequerimientoDao {
 	
 	private $conexionDB;
 	
-	public function AreaDao() {
+	public function RequerimientoDao() {
 		$this -> conexionDB= new Conectar();
 	}
 	
@@ -13,16 +13,15 @@ class AreaDao {
 	}
 	
 	/**
-	 * Get All Areas
+	 * Get All Requerimientos
 	 *
 	 * @return array
 	 */
-	public function GetAllAreas() {
+	public function GetAllRequerimientos() {
 		try {
-			$sql = "SELECT * FROM area";
+			$sql = "SELECT * FROM requerimiento";
 			$result = $this->conexionDB->connect()->query($sql);
-			
-			$this->conexionDB->connect()->close();
+
 			return $result;
 		} catch (PDOException $e) {
 			die("Se produjo un error ".$e);
