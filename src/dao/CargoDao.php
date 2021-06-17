@@ -27,6 +27,24 @@ class CargoDao {
 			die("Se produjo un error ".$e);
 		}
 	}
+	
+	/**
+	 * delete Cargo
+	 *
+	 * @return true or false
+	*
+	*/	
+	public function deleteCargo($id){
+		try {
+			$sql = "DELETE FROM cargo WHERE IDCARGO=".$id;
+			$result = $this->conexionDB->connect()->query($sql);
+			
+			$this->conexionDB->connect()->close();
+			return  ($result === TRUE);
+		} catch (PDOException $e) {
+			die("Se produjo un error ".$e);
+		}
+	}
 }
 
 ?>

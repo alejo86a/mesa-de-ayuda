@@ -46,6 +46,12 @@
               $empleadoDao = new EmpleadoDao();
 
               $all_empleados = $empleadoDao->GetAllEmpleados();
+            
+              if(isset($_POST['eliminar'])) {
+                  if( $empleadoDao->deleteEmpleado($_POST['id'])){
+                    $all_empleados = $empleadoDao->GetAllEmpleados();
+                  }
+              }
               if ($all_empleados->num_rows > 0) {
                 while($row = $all_empleados->fetch_assoc()) {
                   echo "<tr>";
@@ -60,10 +66,18 @@
                   echo "<td>".$row["Y"]."</td>";
                   echo "<td>".$row["CARGO"]."</td>";
                   
+                  echo "<form method='post'>";
+                  echo "<input id='id' name='id' type='hidden' value=".$row["IDEMPLEADO"].">";
+                  echo "<td><button type='submit' class='btn btn-link' name='eliminar' value='Eliminar'/>";
+                  echo "<span class='tim-icons icon-trash-simple'></span>";
+                  echo "</button>";
+                  echo "</form></td>"; 
+                  
                   echo "</tr>";
                 }
                }else{
                   echo "<tr>";
+                  echo "<td></td>";
                   echo "<td></td>";
                   echo "<td></td>";
                   echo "<td></td>";
