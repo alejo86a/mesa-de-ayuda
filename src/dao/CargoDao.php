@@ -4,7 +4,7 @@ class CargoDao {
 	
 	private $conexionDB;
 	
-	public function CargoDao() {
+	public function __construct() {
 		$this -> conexionDB= new Conectar();
 	}
 	

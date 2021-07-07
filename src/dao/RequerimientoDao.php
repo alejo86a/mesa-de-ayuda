@@ -4,7 +4,7 @@ class RequerimientoDao {
 	
 	private $conexionDB;
 	
-	public function RequerimientoDao() {
+	public function __construct() {
 		$this -> conexionDB= new Conectar();
 	}
 	

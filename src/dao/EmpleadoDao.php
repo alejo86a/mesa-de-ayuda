@@ -4,7 +4,7 @@ class EmpleadoDao {
 	
 	private $conexionDB;
 	
-	public function EmpleadoDao() {
+	public function __construct() {
 		$this -> conexionDB= new Conectar();
 	}
 	

@@ -4,7 +4,7 @@ class AreaDao {
 	
 	private $conexionDB;
 	
-	public function AreaDao() {
+	public function __construct() {
 		$this -> conexionDB= new Conectar();
 	}
 	
